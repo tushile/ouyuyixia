@@ -1,0 +1,140 @@
+/* page/find/index.wxss */
+@import "../../lib/cell/index.wxss";
+
+.van-cell {
+  padding: 4px 15px !important;
+  line-height: 42px !important;
+  min-height: 42px!important;
+}
+
+.right-nav {
+  position: absolute !important;
+  left: calc(50% + 112rpx) !important;
+  top: calc(20% + 12rpx) !important;
+  width: 34rpx !important;
+  height: 34rpx !important;
+}
+
+.left-nav {
+  position: absolute !important;
+  left: 130rpx !important;
+  top: calc(20% + 12rpx) !important;
+  width: 34rpx !important;
+  height: 34rpx !important;
+}
+
+.tab-class {
+  transition: all 0.25s ease-in-out;
+}
+
+.tab-active-class {
+  font-size: 1.05em !important;
+}
+
+.button {
+  vertical-align: middle;
+}
+
+.icons {
+  width: 100%;
+  height: 142rpx;
+  padding: 10rpx 0;
+}
+
+.icon {
+  width: 12%;
+  height: 122rpx;
+  float: left;
+  margin: 0 20rpx 0 20rpx;
+  padding: 10rpx;
+  /* border-radius: 50rpx;
+  box-shadow: 0 0 6px #909399;
+  border: 1px solid #909399; */
+}
+
+.img {
+  width: 90%;
+  margin: 0 auto;
+  height: 80rpx;
+}
+
+.img-shadow {
+  border-width: 2px;
+  border-radius: 10rpx;
+  box-shadow: 0 0 10px #f44;
+}
+
+.img image {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  display: block;
+}
+
+.txt {
+  font-size: 28rpx;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.button-sp-area {
+  margin: 0 auto;
+  width: 60%;
+}
+
+/* 绘画图标的hover动效 */
+
+.draw-border {
+  box-shadow: inset 0 0 0 2px #ffffff00;
+  border-radius: 10rpx;
+  transition: color 0.35s 0.0833333333s;
+  position: relative;
+}
+
+.draw-border::before, .draw-border::after {
+  border: 0 solid transparent;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.draw-border::before {
+  border-radius: 10rpx;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.draw-border::after {
+  border-top-width: 2px;
+  border-radius: 10rpx;
+  border-right-width: 2px;
+}
+
+.draw-border:hover {
+  color: #f44;
+  border-radius: 10rpx;
+  font-weight: bolder;
+}
+
+.draw-border:hover::before, .draw-border:hover::after {
+  border-color: #f44;
+  transition: border-color 0s, width 0.35s, height 0.35s;
+  width: 100%;
+  border-radius: 10rpx;
+  height: 100%;
+}
+
+.draw-border:hover::before {
+  transition-delay: 0s, 0s, 0.35s;
+}
+
+.draw-border:hover::after {
+  transition-delay: 0s, 0.35s, 0s;
+}

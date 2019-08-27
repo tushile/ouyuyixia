@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "page/index",
+    "page/my/index",
+    "page/new/index",
+    "page/find/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "演示",
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#2c2c2c",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "page/index",
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/home_select.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "page/find/index",
+        "iconPath": "image/find.png",
+        "selectedIconPath": "image/find_select.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "page/new/index",
+        "iconPath": "image/new.png",
+        "selectedIconPath": "image/new_select.png",
+        "pageTum": "navigate",
+        "text": "发布"
+      },
+      {
+        "pagePath": "page/my/index",
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/my_select.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于共享群内成员"
+    }
+  },
+  "usingComponents": {
+    "van-tab": "../../lib/tab/index",
+    "van-tabs": "../../lib/tabs/index",
+    "van-nav-bar": "../../lib/nav-bar/index",
+    "van-icon": "../../lib/icon/index",
+    "van-field": "../../lib/field/index",
+    "van-button": "../../lib/button/index",
+    "van-cell": "../../lib/cell/index",
+    "van-cell-group": "../../lib/cell-group/index",
+    "van-datetime-picker": "../../lib/datetime-picker/index",
+    "van-popup": "../../lib/popup/index",
+    "van-toast": "../../lib/toast/index",
+    "van-picker": "../../lib/picker/index",
+    "van-notify": "../../lib/notify/index",
+    "van-loading": "../../lib/loading/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

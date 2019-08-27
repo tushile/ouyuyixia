@@ -1,0 +1,10 @@
+@import "../common/index.wxss";
+
+.index-bd {
+  padding: 180rpx 30rpx 40rpx;
+}
+
+.weui-agree__link {
+  display: inline;
+  color: #586c94;
+}

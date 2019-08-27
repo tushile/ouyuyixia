@@ -1,0 +1,107 @@
+<!--page/find/index.wxml-->
+<view>
+  <van-nav-bar title="活动详情" left-text="返回" left-arrow bind:click-left="back">
+  </van-nav-bar>
+  <view class="main">
+    <view class="mjz">
+      <view hover-class="shafahover" class="shafa shafa1">
+        <block wx:if="{{type1Players.length>0}}">
+          <image src="{{type1Players[0].avatarUrl}}"></image>
+        </block>
+        <block wx:if="{{type1Players.length==0}}">
+          <image data-type="1" bindtap="addMe" src="../resources/shafa.png"></image>
+        </block>
+      </view>
+      <view hover-class="shafahover" class="shafa shafa2">
+        <block wx:if="{{type1Players.length>1}}">
+          <image src="{{type1Players[1].avatarUrl}}"></image>
+        </block>
+        <block wx:if="{{type1Players.length<2}}">
+          <image data-type="1" bindtap="addMe" src="../resources/shafa.png"></image>
+        </block>
+      </view>
+      <view hover-class="shafahover" class="shafa shafa3">
+        <block wx:if="{{type1Players.length>2}}">
+          <image src="{{type1Players[1].avatarUrl}}"></image>
+        </block>
+        <block wx:if="{{type1Players.length<3}}">
+          <image data-type="1" bindtap="addMe" src="../resources/shafa.png"></image>
+        </block>
+      </view>
+      <view hover-class="shafahover" class="shafa shafa4">
+        <block wx:if="{{type1Players.length>3}}">
+          <image src="{{type1Players[1].avatarUrl}}"></image>
+        </block>
+        <block wx:if="{{type1Players.length<4}}">
+          <image data-type="1" bindtap="addMe" src="../resources/shafa.png"></image>
+        </block>
+      </view>
+      <image src="../resources/majiangzhuo.png">
+      </image>
+    </view>
+    <view class="detail">
+      {{activeItem.activeTime}}在{{activeItem.address}}集合，详细地址：{{activeItem.addressAll}}
+      <block wx:if="{{activeItem.remark}}">
+        <br/> 注意：{{activeItem.remark}}
+      </block>
+
+    </view>
+    <view class="lay">
+      <view class="title">
+        <image class="title_img" src="../resources/tibu.png"></image>
+        <view class="title_txt" style="color:#67C23A">替补</view>
+      </view>
+      <view class="content">
+        <block wx:for-items="{{type2Players}}" wx:key="item.nickName">
+          <view class="item">
+            <image class="title_img" src="{{item.avatarUrl}}"></image>
+            <view class="title_txt" style="color:#67C23A">{{item.nickName}}</view>
+          </view>
+        </block>
+        <view wx:if="{{isShowAdd2}}" data-type="2" bindtap="addMe" class="item">
+          <image class="title_img" src="../resources/add2.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="lay">
+      <view class="title">
+        <image class="title_img" src="../resources/maima.png"></image>
+        <view class="title_txt" style="color:#1296db">买马</view>
+      </view>
+      <view class="content">
+        <block wx:for-items="{{type3Players}}" wx:key="item.nickName">
+          <view class="item">
+            <image class="title_img" src="{{item.avatarUrl}}"></image>
+            <view class="title_txt" style="color:#1296db">{{item.nickName}}</view>
+          </view>
+        </block>
+        <view wx:if="{{isShowAdd3}}" data-type="3" bindtap="addMe" class="item">
+          <image class="title_img" src="../resources/add3.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="lay">
+      <view class="title">
+        <image class="title_img" src="../resources/pangguan.png"></image>
+        <view class="title_txt" style="color:#f4ea2a">旁观</view>
+      </view>
+      <view class="content">
+        <block wx:for-items="{{type4Players}}" wx:key="item.nickName">
+          <view class="item">
+            <image class="title_img" src="{{item.avatarUrl}}"></image>
+            <view class="title_txt" style="color:#f4ea2a">{{item.nickName}}</view>
+          </view>
+        </block>
+
+        <view wx:if="{{isShowAdd4}}" data-type="4" bindtap="addMe" class="item">
+          <image class="title_img" src="../resources/add4.png"></image>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{isAdd}}" class="button-sp-area">
+      <button type="warn" bindtap="exit">退出活动</button>
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+</view>

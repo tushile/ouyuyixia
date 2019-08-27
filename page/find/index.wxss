@@ -1,0 +1,129 @@
+/* page/find/index.wxss */
+
+.right-nav {
+  position: absolute !important;
+  left: calc(50% + 112rpx) !important;
+  top: calc(20% + 12rpx) !important;
+  width: 34rpx !important;
+  height: 34rpx !important;
+}
+
+.left-nav {
+  position: absolute !important;
+  left: 130rpx !important;
+  top: calc(20% + 12rpx) !important;
+  width: 34rpx !important;
+  height: 34rpx !important;
+}
+
+.allcard {
+  padding: 20rpx;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  color: #323233;
+  font-size: 14px;
+  /* line-height: 200rpx; */
+  height: 220rpx;
+  margin-bottom: 20rpx;
+  border-width: 1px;
+  border-radius: 10rpx;
+  box-shadow: 0 0 10px #ebedf0;
+}
+
+.cardhover {
+  background-color: #ebedf0;
+}
+
+.cardup {
+  height: 160rpx;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+}
+
+.img {
+  height: 140rpx;
+  width: 140rpx;
+  padding: 10rpx;
+}
+
+.img image {
+  height: 120rpx;
+  width: 120rpx;
+  margin: 10rpx;
+}
+
+.cardright {
+  height: 160rpx;
+  width: 560rpx;
+  flex-direction: row;
+  display: flex;
+}
+
+.cardright .texts {
+  color: #fff;
+  /* background-color: #ffffff; */
+  width: 440rpx;
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 10rpx 20rpx;
+  border-radius: 10rpx;
+}
+
+.texts image {
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 6rpx;
+  margin-right: 6rpx;
+}
+
+.right {
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 20rpx;
+  margin-top: calc(5% + 22rpx);
+}
+
+.carddown {
+  height: 60rpx;
+  width: 100%;
+  line-height: 60rpx;
+  text-align: right;
+  color: grey;
+}
+
+.carddown image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  margin-top: 10rpx;
+}
+
+.carddown text {
+  font-size: 12px;
+  margin-right: 20rpx;
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  float: right;
+}
+
+.carddown .groupName {
+  background-color: #409eff;
+  color: white;
+  border-radius: 10rpx;
+  margin-top: 10rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0 10rpx;
+}

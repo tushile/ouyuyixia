@@ -1,0 +1,72 @@
+<!--page/find/index.wxml-->
+<view>
+  <van-nav-bar title="发现">
+    <view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
+  </van-nav-bar>
+  <van-tabs swipeable>
+    <van-icon slot="nav-left" name="flag-o" custom-class="left-nav" />
+    <van-tab title="最新" title-style="nav-class">
+      <scroll-view scroll-y style="height: {{windowHeight}}rpx;">
+        <view class="allcard">
+          <view bindtap="turnDetail" data-activeId="{{item.activeId}}" class="card" hover-class="cardhover" wx:for-items="{{myPlays}}" wx:key="{{item.activeId}}">
+            <view class="cardup">
+              <view class='img'>
+                <image src='../new/resources/{{item.activeName=="打牌"?1:item.activeName=="打球"?2:item.activeName=="KTV"?3:item.activeName=="聚餐"?4:5}}.png'></image>
+              </view>
+              <view class="cardright" style="background:url(https://heltoo.xyz/imgUrl/back1.png) 100%;background-size:cover">
+
+                <view class="texts">
+                  <view>
+                    <image src='resources/time.png'></image>{{item.activeTime}}</view>
+                  <view>
+                    <image src='resources/address.png'></image>在{{item.address}}集合</view>
+                  <view wx:if="{{item.remark}}">
+                    <image src='resources/remark.png'></image>{{item.remark}}</view>
+
+                </view>
+                <image class="right" src='resources/right.png'></image>
+              </view>
+            </view>
+            <view class="carddown">
+              <image src="{{item.userImg}}"></image>
+              <text>{{item.nickName}}{{item.submitTime}}发布于{{item.diyGroupName}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+
+    </van-tab>
+    <van-icon slot="nav-right" name="logistics" custom-class="right-nav" />
+    <van-tab title="历史">
+      <scroll-view scroll-y style="height: {{windowHeight}}rpx;">
+        <view class="allcard">
+          <view bindtap="turnDetail" data-activeId="{{item.activeId}}" class="card" hover-class="cardhover" wx:for-items="{{myPlaysHis}}" wx:key="{{item.activeId}}">
+            <view class="cardup">
+              <view class='img'>
+                <image src='../new/resources/{{item.activeName=="打牌"?1:item.activeName=="打球"?2:item.activeName=="KTV"?3:item.activeName=="聚餐"?4:5}}.png'></image>
+              </view>
+              <view class="cardright" style="background:url(https://heltoo.xyz/imgUrl/back1.png) 100%;background-size:cover">
+
+                <view class="texts">
+                  <view>
+                    <image src='resources/time.png'></image>{{item.activeTime}}</view>
+                  <view>
+                    <image src='resources/address.png'></image>在{{item.address}}集合</view>
+                  <view wx:if="{{item.remark}}">
+                    <image src='resources/remark.png'></image>{{item.remark}}</view>
+
+                </view>
+                <image class="right" src='resources/right.png'></image>
+              </view>
+            </view>
+            <view class="carddown">
+              <image src="{{item.userImg}}"></image>
+              <text>{{item.nickName}}{{item.submitTime}}发布于<text class="groupName">{{item.diyGroupName}}</text></text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </van-tab>
+  </van-tabs>
+  <van-notify id="custom-selector" />
+</view>

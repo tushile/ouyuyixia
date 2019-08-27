@@ -1,0 +1,76 @@
+<!--page/find/index.wxml-->
+<view>
+  <van-nav-bar title="发布">
+    <!-- <van-icon name="search" slot="left" custom-class="icon" /> -->
+  </van-nav-bar>
+  <van-tabs swipeable>
+    <van-icon slot="nav-left" name="flag-o" custom-class="left-nav" />
+    <van-tab title="活动" title-style="nav-class">
+      <view class='icons'>
+        <view class='icon draw-border {{index==1?"img-shadow":""}}' bindtap="getType" data-index="1" data-txt="打牌">
+          <view class='img' style='height:72rpx;margin-top:7rpx;'>
+            <image src='resources/1.png'></image>
+          </view>
+          <text class='txt'>打牌</text>
+        </view>
+        <view class='icon draw-border {{index==2?"img-shadow":""}}' bindtap="getType" data-index="2" data-txt="打球">
+          <view class='img'>
+            <image src='resources/2.png'></image>
+          </view>
+          <text class='txt'>打球</text>
+        </view>
+        <view class='icon draw-border {{index==3?"img-shadow":""}}' bindtap="getType" data-index="3" data-txt="KTV">
+          <view class='img'>
+            <image src='resources/3.png'></image>
+          </view>
+          <text class='txt'>KTV</text>
+        </view>
+        <view class='icon draw-border {{index==4?"img-shadow":""}}' bindtap="getType" data-index="4" data-txt="聚餐">
+          <view class='img'>
+            <image src='resources/4.png'></image>
+          </view>
+          <text class='txt'>聚餐</text>
+        </view>
+        <view class='icon draw-border {{index==5?"img-shadow":""}}' bindtap="getType" data-index="5" data-txt="其他">
+          <view class='img'>
+            <image src='resources/5.png'></image>
+          </view>
+          <text class='txt'>其他</text>
+        </view>
+      </view>
+      <van-cell-group>
+
+        <view wx:if="{{showLoc}}">
+          <map id="myMap" style="width: 100%; height:320rpx;" latitude="{{latitude}}" longitude="{{longitude}}" scale="12" subkey="YOKBZ-U4LCU-YONV4-22XMJ-D4W36-DWBEW" markers="{{markers}}" show-location></map>
+        </view>
+        <van-field required wx:if="{{index!=0}}" readonly="{{readonlyLocInput}}" value="{{locName}}" center clearable label="地点" bind:input="onInputLoc" bind:clear="onClearLoc" placeholder="请选择集合地点" use-button-slot>
+          <van-button slot="button" size="small" custom-class="button" type="primary" bindtap="openLoc">选择地点</van-button>
+        </van-field>
+        <van-field required wx:if="{{showTime}}" readonly value="{{currentDateTxt}}" center clearable label="时间" placeholder="请选择集合时间" use-button-slot>
+          <van-button slot="button" size="small" custom-class="button" type="primary" bindtap="openTimeModel">选择时间</van-button>
+        </van-field>
+        <van-field required wx:if="{{showGroup}}" readonly value="{{selGroupName}}" center clearable label="圈子" placeholder="请选择圈子进行发布" use-button-slot>
+          <van-button slot="button" size="small" custom-class="button" type="primary" bindtap="openGroupModel">切换圈子</van-button>
+        </van-field>
+        <van-field style="height:50px;line-height:40px" wx:if="{{showRemark}}" value="{{ remark }}" label="备注" type="textarea"  placeholder="还想补充点什么..." autosize bind:input="onInputRemark" />
+      </van-cell-group>
+      <view wx:if="{{showSubmit}}" class="button-sp-area">
+        <button type="primary"  bindtap="savePlay">发布</button>
+      </view>
+    </van-tab>
+    <van-icon slot="nav-right" name="logistics" custom-class="right-nav" />
+    <van-tab title="顺风车">
+      <view>
+        <image style='width:100%;margin-top:100rpx;' src='resources/qidai.svg'></image>
+      </view>
+    </van-tab>
+  </van-tabs>
+  <van-popup show="{{ showTimeModel }}" position="bottom" bind:close="closeTimeModel">
+    <van-datetime-picker item-height="30" type="datetime" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:input="onInputTime" bind:confirm="onConfirmTime" bind:cancel="onCancelTime" />
+  </van-popup>
+  <van-popup show="{{ showGroupModel }}" position="bottom" bind:close="closeGroupModel">
+    <van-picker default-index="{{ defaultGroupIndex }}" item-height="30" columns="{{ groupNames }}" bind:confirm="onConfirmGroup" bind:change="onChangeGroup" bind:cancel="onCancelGroup" />
+  </van-popup>
+  <van-toast id="van-toast" />
+  <van-notify id="custom-selector" />
+</view>

@@ -1,0 +1,51 @@
+<view wx:if="{{isHide}}">
+  <view class='header'>
+    <image src='../image/ouyu_logo.svg'></image>
+  </view>
+  <view class='content'>
+    <view>申请获取以下权限</view>
+    <text>获得您的公开信息(昵称，头像等)</text>
+    <text>获得您的地理位置</text>
+  </view>
+  <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+    微信登录
+  </button>
+  <view class='help'>注意：本工具基于群聊分享,任何信息只会分享给群内朋友。</view>
+
+</view>
+
+<view wx:else class="container">
+  <view class="page-body">
+    <view class="page-section page-section-gap">
+      <map id="myMap" style="width: 100%; height:100vh;" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{scale}}" subkey="YOKBZ-U4LCU-YONV4-22XMJ-D4W36-DWBEW" show-compass show-location markers="{{markers}}" polygons="{{polygons}}" bindmarkertap="markertap">
+        <cover-view wx:if="{{isShowInput}}" class="input-info" bindtap="tapInput">
+          {{inputInfo}}
+          <input class="hide" value="{{searchText}}" focus="{{inputFocus}}" bindinput="bindInput" bindblur="blurInput"></input>
+
+        </cover-view>
+        <cover-view wx:if="{{isShowSave}}" class='cover-button' hover-class="cover-button-hover" catchtap="saveGroupName">
+          <cover-image class="cover-img" src='../image/save.png'></cover-image>
+          <cover-view class='cover-text'>
+            保存
+          </cover-view>
+        </cover-view>
+        <cover-view class='cover-dingwei' catchtap="dingwei" hover-class="cover-button-hover" hover-start-time="0" hover-stay-time="80">
+          <cover-image class="cover-dingwei-img" src='../image/location-fill.png'></cover-image>
+        </cover-view>
+      </map>
+      <cover-view class="model {{isShowModel?'show':'close'}}" catchtouchmove="preventTouchMove">
+        <!--弹窗样式可自定义-->
+        <cover-view class="model-pack">
+          <cover-view class="model-title">{{ModelTitle}}</cover-view>
+          <cover-view class="model-content">{{ModelContent}}
+          </cover-view>
+          <cover-view class="model-button">
+            <cover-view data-modelid="{{ModelId}}" class="model-button-cancel {{isShowConfirm?'close':'show'}}" bindtap="cancel">取消</cover-view>
+            <button open-type='share' data-modelid="{{ModelId}}" class="model-button-confirm {{isShowConfirm?'close':'show'}}" bindtap="confirm">分享</button>
+            <button open-type='share' data-modelid="{{ModelId}}" class="confirm {{isShowConfirm?'show':'close'}}" bindtap="confirm">分享</button>
+          </cover-view>
+        </cover-view>
+      </cover-view>
+    </view>
+  </view>
+</view>

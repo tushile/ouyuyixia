@@ -1,0 +1,203 @@
+.header {
+  padding: 120rpx 50rpx 50rpx 50rpx;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  height: 300rpx;
+  line-height: 450rpx;
+}
+.header image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.content {
+  margin-left: 50rpx;
+  margin-bottom: 90rpx;
+}
+
+.content text {
+  display: block;
+  color: #9d9d9d;
+  margin-top: 40rpx;
+}
+
+.help {
+  text-align: center;
+  color: #9d9d9d;
+}
+
+.bottom {
+  border-radius: 80rpx;
+  margin: 70rpx 50rpx;
+  font-size: 35rpx;
+}
+
+/* 输入组件 */
+
+.input-info {
+  position: fixed;
+  left: 50%;
+  bottom: 60rpx;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 40rpx;
+  /* border-color:#F56C6C;
+    border-width: 2rpx;
+    border-style: solid; */
+  padding: 0 22rpx;
+  color: black;
+  text-align: center;
+}
+
+.input-info .hide {
+  position: relative;
+  color: black;
+  top: 8px;
+}
+
+/* 定位 */
+
+.cover-dingwei {
+  background: rgba(255, 255, 255, 0.7);
+  display: block;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 16rpx;
+  line-height: 70rpx;
+  position: fixed;
+  bottom: 140rpx;
+  left: 4%;
+}
+
+.cover-dingwei-img {
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  position: absolute;
+  top: 10rpx;
+  left: 10rpx;
+}
+
+/* 保存圈子 */
+
+.cover-button {
+  background: rgba(255, 255, 255, 0.7);
+  display: block;
+  width: 170rpx;
+  height: 70rpx;
+  border-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  border-bottom-right-radius: 40rpx;
+  line-height: 70rpx;
+  position: fixed;
+  bottom: 140rpx;
+  left: 40%;
+}
+
+.cover-button-hover {
+  background: #636363;
+}
+
+.cover-img {
+  width: 34rpx;
+  height: 34rpx;
+  display: block;
+  position: absolute;
+  top: 18rpx;
+  left: 34rpx;
+}
+
+.cover-text {
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 18rpx;
+  left: 70rpx;
+}
+
+/* 模态窗 */
+
+.model {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /*蒙层的透明度可以自定义*/
+  z-index: 9999999999;
+}
+
+.show {
+  display: block;
+}
+
+.close {
+  display: none;
+}
+
+/*下方可以自定义*/
+
+.button-hover {
+  color: inherit;
+  background-color: rgb(158, 138, 138);
+}
+
+.model-pack {
+  width: 15rem;
+  margin: 0 auto;
+  margin-top: 90%;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.model-title {
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.3rem 0;
+}
+
+.model-content {
+  font-size: 0.8rem;
+  padding: 1rem 0.8rem;
+}
+
+.model-button {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  width: 100%;
+  border-top: 1px solid #eee;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.model-button-cancel {
+  float: left;
+  width: 50%;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  box-sizing: border-box;
+  border-right: 1px solid #eee;
+}
+
+.model-button-confirm {
+  width: 50%;
+  float: left;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: initial;
+  background-color: #fff;
+  font-size: inherit;
+}
+
+.confirm {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+
+/* 模态窗 */
