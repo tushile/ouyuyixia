@@ -41,8 +41,8 @@ Page({
           if (myGroups) {
             for (let i = 0; i < myGroups.length; i++) {
               groupInfos[i] = {}
-              groupInfos[i].groupName = myGroups[i].diyGroupName
-              groupInfos[i].groupId = myGroups[i].openGId
+              groupInfos[i].groupName = myGroups[i].DiyGroupName
+              groupInfos[i].groupId = myGroups[i].OpenGId
             }
           }
           that.setData({

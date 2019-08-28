@@ -75,9 +75,9 @@ Page({
     let groupMaps = {}
     if (mygroups) {
       for (let i = 0; i < mygroups.length; i++) {
-        groups[i] = mygroups[i].diyGroupName
-        groupMaps[i] = mygroups[i].openGId
-        if (openGId == mygroups[i].openGId) {
+        groups[i] = mygroups[i].DiyGroupName
+        groupMaps[i] = mygroups[i].OpenGId
+        if (openGId == mygroups[i].OpenGId) {
           //设置默认圈子
           defaultGroupIndex = i
         }
@@ -302,8 +302,8 @@ Page({
     let groupMaps = {}
     if (mygroups) {
       for (let i = 0; i < mygroups.length; i++) {
-        groups[i] = mygroups[i].diyGroupName
-        groupMaps[i] = mygroups[i].openGId
+        groups[i] = mygroups[i].DiyGroupName
+        groupMaps[i] = mygroups[i].OpenGId
       }
       this.setData({
         groupNames: groups,

@@ -25,6 +25,7 @@ Page({
     scale: 11,
     isInitScale: true,
     isHide: false,
+    allplays: [],
     markers: [],
     polygons: [],
     isShowModel: false, //控制弹窗是否显示，默认不显示
@@ -72,9 +73,9 @@ Page({
     let hasIt = false
     if (myGroups) {
       for (let i = 0; i < myGroups.length; i++) {
-        if (openGId == myGroups[i].openGId) {
+        if (openGId == myGroups[i].OpenGId) {
           hasIt = true
-          myGroups[i].diyGroupName = groupName
+          myGroups[i].DiyGroupName = groupName
         }
       }
     }
@@ -96,7 +97,25 @@ Page({
     saveGroupNameInfo(groupName)
   },
   markertap(e) {
-    console.log(e)
+    let allplays = this.data.allplays
+    let activeItem = {}
+    for (let i = 0; i < allplays.length; i++) {
+      if (allplays[i].id == e.markerId) {
+        activeItem = allplays[i]
+        activeItem.activeTime = util.getTimeLeave(allplays[i].locationTime)
+      }
+    }
+    if (activeItem.type == 'play') {
+      wx.navigateTo({
+        url: 'find/detail/index',
+        success: function(res) {
+          // 通过eventChannel向被打开页面传送数据
+          res.eventChannel.emit('acceptDataFromOpenerPage', {
+            data: activeItem
+          })
+        }
+      })
+    }
   },
   onShow: function() {
     let hasLogin = wx.getStorageSync("openid")
@@ -202,7 +221,7 @@ Page({
           }
           wx.setStorageSync("myGroups", resData)
           console.log("查询我的群：", resData)
-          
+
           if (groupId) {
             that.setData({
               isShowInput: true
@@ -210,8 +229,8 @@ Page({
             var groupName = wx.getStorageSync(groupId)
             if (!groupName) {
               for (let i = 0; i < resData.length; i++) {
-                if (groupId == resData[i].openGId) {
-                  groupName = resData[i].diyGroupName
+                if (groupId == resData[i].OpenGId) {
+                  groupName = resData[i].DiyGroupName
                   if (groupName == "") {
                     groupName = "给圈子取个名字吧"
                     that.setData({
@@ -369,11 +388,11 @@ Page({
     })
   },
   // 发送和接收 socket 消息
-  sendSocketMessage: function (msg) {
+  sendSocketMessage: function(msg) {
     let that = this
     return new Promise((resolve, reject) => {
-      app.sendSocketMessage('chat',msg)
-      app.globalData.callback = function (res) {
+      app.sendSocketMessage('chat', msg)
+      app.globalData.callback = function(res) {
         var resData = ws.messageReceivedFromConn(res)
         if (resData.msg == msg && resData.evt == "chat") {
           console.log('收到服务器内容chat ', res)
@@ -421,25 +440,33 @@ Page({
                 latitude: resData[i].latitude,
                 longitude: resData[i].longitude
               }
+              let borderColor = '#F56C6C'
+              let bgColor = '#FDE2E280'
+              let content = resData[i].nickName + "\n" + timeTxt + "在这里"
+              if (resData[i].type == 'play') {
+                borderColor = '#409EFF'
+                bgColor = '#8CC5FF'
+                content = "活动：" + resData[i].nickName + "\n" + timeTxt
+              }
               markers[i] = {
                 iconPath: resData[i].avatarUrl,
                 id: resData[i].id,
                 latitude: resData[i].latitude,
                 longitude: resData[i].longitude,
                 callout: {
-                  content: resData[i].nickName + " " + timeTxt,
+                  content: content,
                   color: "#FFFFFF",
                   fontSize: 12,
                   padding: 4,
                   borderRadius: 3,
-                  borderColor: "#F56C6C",
-                  bgColor: "#FDE2E280",
+                  borderColor: borderColor,
+                  bgColor: bgColor,
                   display: "ALWAYS",
                   textAlign: "center",
                   borderWidth: 1
                 },
-                width: 24,
-                height: 24
+                width: 34,
+                height: 34
               }
             }
             //求坐标点最外层边框，并排序
@@ -460,7 +487,8 @@ Page({
             }]
             that.setData({
               polygons: polygons,
-              markers: markers
+              markers: markers,
+              allplays: resData
             });
 
           }

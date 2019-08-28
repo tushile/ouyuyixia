@@ -93,9 +93,10 @@ Page({
               myPlaysHis: myPlaysHis,
               myPlaysP: resDataP
             })
-            wx.hideLoading()
+            
           }
         }
+        wx.hideLoading()
       }
     })
   },

@@ -119,7 +119,7 @@
 }
 
 .carddown .groupName {
-  background-color: #409eff;
+  background-color: #909399;
   color: white;
   border-radius: 10rpx;
   margin-top: 10rpx;

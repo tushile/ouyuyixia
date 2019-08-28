@@ -149,7 +149,13 @@ function getTimeLeave(lastTime) {
   var curTimestamp = (new Date().getTime() / 60000).toFixed(1)
   var lastTimestamp = (new Date(lastTime).getTime() / 60000).toFixed(1)
   var timestampDiff = curTimestamp - lastTimestamp // 参数时间戳与当前时间戳相差秒数
-  if (timestampDiff < 5) {
+
+  let date = new Date(lastTime)
+  let h = date.getHours()
+  h = h > 9 ? h : "0" + h;
+  if (timestampDiff < 0) {
+    timeTxt = date.getMonth() + 1 + "." + date.getDate() + "(" + getDay(date) + ")" + h + '点'
+  } else if (timestampDiff > 0 && timestampDiff < 5) {
     timeTxt = "刚刚"
   } else if (timestampDiff > 5 && timestampDiff < 20) {
     timeTxt = "5分钟前"

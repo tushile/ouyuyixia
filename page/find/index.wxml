@@ -29,7 +29,7 @@
             </view>
             <view class="carddown">
               <image src="{{item.userImg}}"></image>
-              <text>{{item.nickName}}{{item.submitTime}}发布于{{item.diyGroupName}}</text>
+              <text>{{item.nickName}}{{item.submitTime}}发布于<text class="groupName">{{item.diyGroupName}}</text></text>
             </view>
           </view>
         </view>
