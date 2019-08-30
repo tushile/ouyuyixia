@@ -9,14 +9,8 @@ Page({
     windowHeight: "",
     activeItem: {},
     players: [],
-    type1Players: [],
-    type2Players: [],
-    type3Players: [],
-    type4Players: [],
     isAdd: false,
-    isShowAdd2: true,
-    isShowAdd3: true,
-    isShowAdd4: true,
+    isShowAdd: true
   },
 
   onLoad(opt) {
@@ -44,27 +38,15 @@ Page({
     if (this.data.isAdd) {
       //隐藏按钮
       this.setData({
-        isShowAdd2: false,
-        isShowAdd3: false,
-        isShowAdd4: false,
+        isShowAdd: false
       })
     }
     //如果没加入活动
     else {
       //增加按钮默认显示，但排除下面情况
-      if (this.data.type2Players.length > 5) {
+      if (this.data.players.length > 5) {
         this.setData({
-          isShowAdd2: false,
-        })
-      }
-      if (this.data.type3Players.length > 5) {
-        this.setData({
-          isShowAdd3: false,
-        })
-      }
-      if (this.data.type4Players.length > 5) {
-        this.setData({
-          isShowAdd4: false,
+          isShowAdd: false,
         })
       }
     }
@@ -82,50 +64,19 @@ Page({
       openId: openId
     }
     let players = this.data.players
-    let type1Players = this.data.type1Players
-    let type2Players = this.data.type2Players
-    let type3Players = this.data.type3Players
-    let type4Players = this.data.type4Players
-    if (type == 1) {
-      if (type1Players.length > 3) {
-        return
-      }
-      if (players.length > 0) {
-        for (let i = 0; i < players.length; i++) {
-          if (players[i].openId == openId) {
-            Toast.default.fail("活动已加入！")
-            return
-          }
-        }
-      }
 
-      type1Players.push(playInfo)
-    } else if (type == 2) {
-      type2Players.push(playInfo)
-    } else if (type == 3) {
-      type3Players.push(playInfo)
-    } else if (type == 4) {
-      type4Players.push(playInfo)
-    }
     players.push(playInfo)
     this.setData({
       players: players,
-      type1Players: type1Players,
-      type2Players: type2Players,
-      type3Players: type3Players,
-      type4Players: type4Players,
       isAdd: true,
-      isShowAdd2: false,
-      isShowAdd3: false,
-      isShowAdd4: false,
+      isShowAdd: false
     })
     wx.request({
       url: config.addPlayUrl,
       data: {
         data: JSON.stringify({
           activeId: this.data.activeItem.activeId,
-          openId: wx.getStorageSync("openid"),
-          majiangType: type
+          openId: wx.getStorageSync("openid")
         })
       },
       header: {
@@ -182,10 +133,7 @@ Page({
         if (result.data.code == 0) {
           var resData = result.data.data
           var openId = wx.getStorageSync("openid")
-          var type1Players = []
-          var type2Players = []
-          var type3Players = []
-          var type4Players = []
+          var players = []
           if (resData) {
             for (let i = 0; i < resData.length; i++) {
               if (resData[i].openId == openId) {
@@ -193,22 +141,12 @@ Page({
                   isAdd: true
                 })
               }
-              if (resData[i].majiangType == '1') {
-                type1Players.push(resData[i])
-              } else if (resData[i].majiangType == '2') {
-                type2Players.push(resData[i])
-              } else if (resData[i].majiangType == '3') {
-                type3Players.push(resData[i])
-              } else if (resData[i].majiangType == '4') {
-                type4Players.push(resData[i])
-              }
+
+              players.push(resData[i])
+
             }
             that.setData({
-              players: resData,
-              type1Players: type1Players,
-              type2Players: type2Players,
-              type3Players: type3Players,
-              type4Players: type4Players
+              players: players
             })
             that.checkStatus()
           }

@@ -5,31 +5,55 @@
   height: 300rpx;
   line-height: 450rpx;
 }
+
 .header image {
   width: 200rpx;
   height: 200rpx;
 }
 
 .content {
-  margin-left: 50rpx;
-  margin-bottom: 90rpx;
+  padding: 40rpx 0;
 }
 
-.content text {
-  display: block;
-  color: #9d9d9d;
-  margin-top: 40rpx;
-}
-
-.help {
+.content-view1 {
   text-align: center;
+  margin-bottom: 30rpx;
+  font-size: 35rpx;
+}
+
+.content-view2 {
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.help1 {
   color: #9d9d9d;
+  font-size: 0.7em;
+  text-align: center;
+}
+
+.help2 {
+  color: #9d9d9d;
+  font-size: 0.7em;
+  position: fixed;
+  bottom: 10rpx;
+  width: 100%;
+  text-align: center;
 }
 
 .bottom {
-  border-radius: 80rpx;
-  margin: 70rpx 50rpx;
+  margin: 20rpx 50rpx;
   font-size: 35rpx;
+  background-color: #45b035 !important;
+}
+
+.button-img {
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  top: 8rpx;
+  left: 18%;
 }
 
 /* 输入组件 */
@@ -50,6 +74,24 @@
   padding: 0 22rpx;
   color: black;
   text-align: center;
+}
+
+.input-label {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 40rpx;
+  /* border-color:#F56C6C;
+    border-width: 2rpx;
+    border-style: solid; */
+  padding: 0 22rpx;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 0.7em;
 }
 
 .input-info .hide {
@@ -160,8 +202,10 @@
 }
 
 .model-content {
-  font-size: 0.8rem;
-  padding: 1rem 0.8rem;
+  font-size: 0.9rem;
+  padding: 1rem 0.9rem;
+  overflow: auto;
+  white-space: initial;
 }
 
 .model-button {

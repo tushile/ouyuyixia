@@ -11,7 +11,7 @@
           <view bindtap="turnDetail" data-activeId="{{item.activeId}}" class="card" hover-class="cardhover" wx:for-items="{{myPlays}}" wx:key="{{item.activeId}}">
             <view class="cardup">
               <view class='img'>
-                <image src='../new/resources/{{item.activeName=="打牌"?1:item.activeName=="打球"?2:item.activeName=="KTV"?3:item.activeName=="聚餐"?4:5}}.png'></image>
+                <image src='../new/resources/{{item.activeName=="打牌"?1:item.activeName=="运动"?2:item.activeName=="KTV"?3:item.activeName=="聚餐"?4:5}}.png'></image>
               </view>
               <view class="cardright" style="background:url(https://heltoo.xyz/imgUrl/back1.png) 100%;background-size:cover">
 
@@ -43,7 +43,7 @@
           <view bindtap="turnDetail" data-activeId="{{item.activeId}}" class="card" hover-class="cardhover" wx:for-items="{{myPlaysHis}}" wx:key="{{item.activeId}}">
             <view class="cardup">
               <view class='img'>
-                <image src='../new/resources/{{item.activeName=="打牌"?1:item.activeName=="打球"?2:item.activeName=="KTV"?3:item.activeName=="聚餐"?4:5}}.png'></image>
+                <image src='../new/resources/{{item.activeName=="打牌"?1:item.activeName=="运动"?2:item.activeName=="KTV"?3:item.activeName=="聚餐"?4:5}}.png'></image>
               </view>
               <view class="cardright" style="background:url(https://heltoo.xyz/imgUrl/back1.png) 100%;background-size:cover">
 

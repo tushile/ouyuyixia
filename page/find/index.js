@@ -11,7 +11,14 @@ Page({
     myPlaysHis: [],
     myPlaysP: []
   },
-
+  onPullDownRefresh: function() {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.selectMyPlay()
+    setTimeout(function() {
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
+  },
   onLoad() {
     var openGId = wx.getStorageSync("openGId")
     wx.onSocketMessage(function(res) {
@@ -93,7 +100,7 @@ Page({
               myPlaysHis: myPlaysHis,
               myPlaysP: resDataP
             })
-            
+
           }
         }
         wx.hideLoading()
@@ -133,17 +140,20 @@ Page({
   },
   //跳转到详情页面
   turnDetail(e) {
-    let that = this
+    let activeItem
+    let url = 'detail/index'
+    for (let i in this.data.myPlaysP) {
+      if (this.data.myPlaysP[i].activeId == e.currentTarget.dataset.activeid) {
+        activeItem = this.data.myPlaysP[i]
+        break
+      }
+    }
+    if (["运动", "KTV", "聚餐", "其他"].indexOf(activeItem.activeName) > -1) {
+      url = 'detail/other'
+    }
     wx.navigateTo({
-      url: 'detail/index',
+      url: url,
       success: function(res) {
-        let activeItem;
-        for (let i in that.data.myPlaysP) {
-          if (that.data.myPlaysP[i].activeId == e.currentTarget.dataset.activeid) {
-            activeItem = that.data.myPlaysP[i]
-            break
-          }
-        }
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', {
           data: activeItem

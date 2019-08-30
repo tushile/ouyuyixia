@@ -1,0 +1,17 @@
+<view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
+<view class="index">
+  <van-nav-bar title="反馈记录" left-text="返回" left-arrow bind:click-left="back">
+  </van-nav-bar>
+  <block wx:for-items="{{advices}}" wx:for-item="item" wx:key="*item">
+    <view class="advice">
+      <view class="left">
+        <image class="img" src="{{item.ImgUrl}}"></image>
+        <view class="type type{{item.AdviceType}}">{{item.AdviceName}}</view>
+      </view>
+      <view class="right">
+        <view class="top">{{item.CreateTime}}</view>
+        <view class="bottom">{{item.Content}}</view>
+      </view>
+    </view>
+  </block>
+</view>

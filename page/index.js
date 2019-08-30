@@ -103,11 +103,16 @@ Page({
       if (allplays[i].id == e.markerId) {
         activeItem = allplays[i]
         activeItem.activeTime = util.getTimeLeave(allplays[i].locationTime)
+        activeItem.activeId = allplays[i].id
       }
     }
     if (activeItem.type == 'play') {
+      let url = 'find/detail/index'
+      if (["运动", "KTV", "聚餐", "其他"].indexOf(activeItem.nickName) > -1) {
+        url = 'find/detail/other'
+      }
       wx.navigateTo({
-        url: 'find/detail/index',
+        url: url,
         success: function(res) {
           // 通过eventChannel向被打开页面传送数据
           res.eventChannel.emit('acceptDataFromOpenerPage', {
@@ -215,7 +220,7 @@ Page({
               that.showModel({
                 ModelId: 0,
                 ModelTitle: '提示',
-                ModelContent: '您还没有圈子，快去微信群分享吧'
+                ModelContent: '您还没有圈子，从微信群分享的小卡片进入，可自动加入圈子'
               })
             }
           }
@@ -382,28 +387,45 @@ Page({
           console.log('用户位置数据存储失败！' + result.data)
         } else {
           var openGId = wx.getStorageSync("openGId")
-          that.sendSocketMessage(openGId)
+          var userInfo = wx.getStorageSync("userInfo")
+
+          that.sendSocketMessage(openGId, userInfo.nickName)
         }
       }
     })
   },
   // 发送和接收 socket 消息
-  sendSocketMessage: function(msg) {
+  sendSocketMessage: function(openGId, nickName) {
     let that = this
+    let msg = openGId + '|' + nickName
     return new Promise((resolve, reject) => {
       app.sendSocketMessage('chat', msg)
       app.globalData.callback = function(res) {
         var resData = ws.messageReceivedFromConn(res)
-        if (resData.msg == msg && resData.evt == "chat") {
+        let resMsg = resData.msg
+        let tmp = resMsg.split("|")
+        if (tmp[0] == openGId && resData.evt == "chat") {
           console.log('收到服务器内容chat ', res)
           that.setData({
             isInitScale: false
+          })
+          wx.showToast({
+            title: tmp[1] + '已加入',
+            icon: 'none',
+            duration: 3000
           })
           that.selectUserGroup()
         }
         resolve(res)
       }
     })
+  },
+  //截取指定字符串后几位
+  getCaption(obj) {
+    var index = obj.lastIndexOf(",");
+    obj = obj.substring(index + 1, obj.length);
+    //  console.log(obj);
+    return obj;
   },
   //查询用户组信息
   selectUserGroup: function() {
@@ -549,15 +571,7 @@ Page({
   //阻断模态弹窗点击穿透
   preventTouchMove: function() {},
   //点击按钮的事件
-  shareInit: function(event) {
-    console.log("saveGroup event")
-    console.log(event)
-    this.showModel({
-      ModelId: 0,
-      ModelTitle: '提示',
-      ModelContent: '您还没有圈子，快去微信群分享吧'
-    })
-  },
+  shareInit: function(event) {},
   //调用模态弹窗
   showModel: function(e) {
     //将传过来的标题和内容展示到弹窗上

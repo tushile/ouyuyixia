@@ -1,26 +1,21 @@
-<view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view> 
+<view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
 <view class="index">
-  <view class="index-bd">
-    <view class="kind-list">
-      <block wx:for-items="{{list}}" wx:key="{{item.id}}">
-        <view class="kind-list-item">
-          <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
-            <view class="kind-list-text">{{item.name}}</view>
-            <image class="kind-list-img" src="resources/kind/{{item.id}}.png"></image>
-          </view>
-          <view class="kind-list-item-bd {{item.open ? 'kind-list-item-bd-show' : ''}}">
-            <view class="navigator-box {{item.open ? 'navigator-box-show' : ''}}">
-              <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
-                <view bindtap='turnGroup' data-groupid='{{page.groupId}}' data-groupname='{{page.groupName}}'  class="navigator">
-                  <view class="navigator-text">{{page.groupName}}</view>
-                  <view class="navigator-arrow"></view>
-                </view>
-              </block>
-            </view>
-          </view>
-        </view>
-      </block>
+  <view class="head">
+    <view class="img">
+      <open-data type="userAvatarUrl"></open-data>
     </view>
   </view>
-  <van-button type="primary">按钮</van-button>
+  <block wx:for-items="{{groupInfos}}" wx:for-item="item" wx:key="*item">
+    <view bindtap='turnGroup' data-groupid='{{item.groupId}}' data-groupname='{{item.groupName}}' class="group">
+      <image class="group-img" src="resources/kind/mygroup.png"></image>
+      <view class="group-content">
+        <view class="group-txt">圈子名：{{item.groupName}}
+        </view>
+        <view class="group-txt">来自微信群：
+          <open-data type="groupName" open-gid="{{item.groupId}}"></open-data>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="advice" bindtap='turnAdvice'>投诉&建议</view>
 </view>

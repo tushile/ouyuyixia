@@ -66,6 +66,8 @@
     "van-button": "../../lib/button/index",
     "van-cell": "../../lib/cell/index",
     "van-cell-group": "../../lib/cell-group/index",
+    "van-radio": "../../lib/radio/index",
+    "van-radio-group": "../../lib/radio-group/index",
     "van-datetime-picker": "../../lib/datetime-picker/index",
     "van-popup": "../../lib/popup/index",
     "van-toast": "../../lib/toast/index",

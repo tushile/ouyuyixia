@@ -1,0 +1,67 @@
+.main {
+  background: #31353e 100% 100%;
+  background-size: cover;
+  width: 750rpx;
+  height: 100%;
+  padding: 60rpx 0;
+}
+
+.detail {
+  width: 95%;
+  min-height: 120rpx;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 0.9em;
+}
+
+.button-sp-area {
+  margin: 0 auto;
+  width: 60%;
+  padding: 10rpx 0;
+}
+
+.lay {
+  width: 95%;
+  min-height: 120rpx;
+  display: flex;
+  margin: 16rpx auto;
+}
+
+.lay .title {
+  width: 80rpx;
+  height: 90rpx;
+}
+
+.lay .title_img {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  display: block;
+}
+
+.lay .title_txt {
+  text-align: center;
+  font-size: 0.7em;
+  width: 100rpx;
+}
+
+.lay .content {
+  box-shadow: 0 0 2px #fff;
+  border-radius: 1rpx;
+  width: 100%;
+  min-height: 110rpx;
+  padding: 0 8rpx;
+}
+
+.lay .item {
+  width: 100rpx;
+  padding: 5rpx 0;
+  margin: 0 8rpx;
+  float: left;
+}
+
+.lay .addv {
+  width: 100rpx;
+  height: 90rpx;
+  margin: 0 8rpx;
+}

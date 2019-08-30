@@ -47,6 +47,12 @@ const config = {
   // 退出活动
   leavePlayUrl: `${host}/leavePlay`,
 
+  // 保存建议
+  saveAdviceUrl: `${host}/saveAdvice`,
+  
+  // 查询建议
+  selectAdviceUrl: `${host}/selectAdvice`,
+
   //websocket地址
   wsUrl: `${wsshost}/echo`
 }

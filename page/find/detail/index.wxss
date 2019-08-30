@@ -2,6 +2,7 @@
   background: #31353e 100% 100%;
   background-size: cover;
   width: 750rpx;
+  height: 100%;
 }
 
 .mjz {
@@ -57,9 +58,8 @@
   position: absolute;
   top: 760rpx;
   left: 2.5%;
-  box-shadow: 0 0 2px #fff;
   color: #fff;
-  font-size: 0.7em;
+  font-size: 0.8em;
 }
 
 .button-sp-area {

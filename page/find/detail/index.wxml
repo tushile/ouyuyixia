@@ -1,5 +1,5 @@
-<view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view> 
-<view>
+<view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
+<view style="height:100%">
   <van-nav-bar title="活动详情" left-text="返回" left-arrow bind:click-left="back">
   </van-nav-bar>
   <view class="main">

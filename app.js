@@ -16,22 +16,22 @@ App({
     var that = this
     var hasLogin = wx.getStorageSync("openid")
     console.log('onShow,判断hasLogin', hasLogin)
-    //if (hasLogin) {
-    //wx.setStorageSync("openGId", "Gfjw_5eQUo4ZAM8D9X5SstLExXho")
-    // if (typeof(shareTicket) != 'undefined') {
-    //   console.log('haslogin,执行getShare')
-    //   that.getShare(shareTicket)
-    // }
-    //} else {
-    // console.log('notHaslogin,执行wxlogin')
-    //  this.wxlogin().then((res) => {
-    //wx.setStorageSync("openGId", "Gfjw_5eQUo4ZAM8D9X5SstLExXho")
-    // if (typeof(shareTicket) != 'undefined') {
-    //   console.log('onShow,执行wxlogin成功，调用getShare')
-    //   that.getShare(shareTicket)
-    // }
-    // })
-    // }
+    if (hasLogin) {
+      //wx.setStorageSync("openGId", "Gfjw_5eQUo4ZAM8D9X5SstLExXho")
+      if (typeof(shareTicket) != 'undefined') {
+        console.log('haslogin,执行getShare')
+        that.getShare(shareTicket)
+      }
+    } else {
+      console.log('notHaslogin,执行wxlogin')
+      this.wxlogin().then((res) => {
+        //wx.setStorageSync("openGId", "Gfjw_5eQUo4ZAM8D9X5SstLExXho")
+        if (typeof(shareTicket) != 'undefined') {
+          console.log('onShow,执行wxlogin成功，调用getShare')
+          that.getShare(shareTicket)
+        }
+      })
+    }
   },
   wxlogin() {
     var that = this

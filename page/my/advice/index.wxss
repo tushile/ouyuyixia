@@ -1,0 +1,41 @@
+.index {
+  height: 100%;
+  /* background-color: rgb(198, 226, 255); */
+}
+
+.value-class {
+  flex: none !important;
+}
+
+.van-hairline--top-bottom {
+  top: 20rpx !important;
+}
+
+.van-button--large {
+  width: 90% !important;
+  margin: 0 auto !important;
+  display: block !important;
+  margin-top: 40rpx !important;
+}
+
+.his {
+  width: 100%;
+  text-align: center;
+  margin-top: 20rpx;
+  color: #1989fa;
+  font-size: 0.8em;
+}
+
+.contact {
+  background-color: #f8f8f8;
+  color: #1989fa;
+  font-size: 0.8em;
+  width: 100%;
+  position: fixed;
+  bottom: 20rpx;
+  text-align: right;
+}
+
+.contact::after {
+  border: none !important;
+}

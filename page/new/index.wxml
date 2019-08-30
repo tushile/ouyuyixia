@@ -1,6 +1,7 @@
-<view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view> 
+
 <view>
   <van-nav-bar title="发布">
+  <view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view> 
     <!-- <van-icon name="search" slot="left" custom-class="icon" /> -->
   </van-nav-bar>
   <van-tabs swipeable>
@@ -13,11 +14,11 @@
           </view>
           <text class='txt'>打牌</text>
         </view>
-        <view class='icon draw-border {{index==2?"img-shadow":""}}' bindtap="getType" data-index="2" data-txt="打球">
+        <view class='icon draw-border {{index==2?"img-shadow":""}}' bindtap="getType" data-index="2" data-txt="运动">
           <view class='img'>
             <image src='resources/2.png'></image>
           </view>
-          <text class='txt'>打球</text>
+          <text class='txt'>运动</text>
         </view>
         <view class='icon draw-border {{index==3?"img-shadow":""}}' bindtap="getType" data-index="3" data-txt="KTV">
           <view class='img'>

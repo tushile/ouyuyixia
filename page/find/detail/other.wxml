@@ -1,0 +1,33 @@
+<view style="height:100%">
+  <van-nav-bar title="活动详情" left-text="返回" left-arrow bind:click-left="back">
+    <view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
+  </van-nav-bar>
+  <view class="main">
+
+    <view class="detail">
+      {{activeItem.activeTime}}在{{activeItem.address}}集合，详细地址：{{activeItem.addressAll}}
+      <block wx:if="{{activeItem.remark}}">
+        <br/> 注意：{{activeItem.remark}}
+      </block>
+
+    </view>
+    <view class="lay">
+      <view class="content">
+        <block wx:for-items="{{players}}" wx:key="item.nickName">
+          <view class="item">
+            <image class="title_img" src="{{item.avatarUrl}}"></image>
+            <view class="title_txt" style="color:#67C23A">{{item.nickName}}</view>
+          </view>
+        </block>
+        <view wx:if="{{isShowAdd}}" bindtap="addMe" class="item">
+          <image class="title_img" src="../resources/add2.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{isAdd}}" class="button-sp-area">
+      <button type="warn" bindtap="exit">退出活动</button>
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+</view>
