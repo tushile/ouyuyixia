@@ -38,7 +38,7 @@ Page({
     showGroupModel: false,
     readonlyLocInput: true
   },
-  //清空活动发布数据
+  //清空活动提交数据
   clearPlayData() {
     this.setData({
       index: 0,
@@ -105,7 +105,7 @@ Page({
       locName: ""
     });
   },
-  //发布活动
+  //提交活动
   savePlay() {
     let that = this
     if (!this.data.locName || !this.data.latitude) {
@@ -117,10 +117,10 @@ Page({
       return
     }
     if (!this.data.selGroupId) {
-      Toast.default.fail("请选择圈子进行发布")
+      Toast.default.fail("请选择圈子进行提交")
       return
     }
-    //保存活动发布
+    //保存活动提交
     let userInfo = wx.getStorageSync("userInfo")
     wx.request({
       url: config.savePlayUrl,
@@ -145,10 +145,10 @@ Page({
       method: 'POST',
       success: function(result) {
         if (result.code == -1) {
-          console.log('活动发布存储失败！')
+          console.log('活动提交存储失败！')
         }
-        Toast.default.success("发布成功！")
-        //发布成功后发送websocket
+        Toast.default.success("提交成功！")
+        //提交成功后发送websocket
         let openGId = wx.getStorageSync("openGId")
         app.sendSocketMessage('play', openGId)
         that.clearPlayData()

@@ -1,5 +1,5 @@
 <view>
-  <van-nav-bar title="发布">
+  <van-nav-bar title="活动">
     <view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
     <!-- <van-icon name="search" slot="left" custom-class="icon" /> -->
   </van-nav-bar>
@@ -49,13 +49,13 @@
         <van-field required wx:if="{{showTime}}" readonly value="{{currentDateTxt}}" center clearable label="时间" placeholder="请选择集合时间" use-button-slot>
           <van-button slot="button" size="small" custom-class="button" type="primary" bindtap="openTimeModel">选择时间</van-button>
         </van-field>
-        <van-field required wx:if="{{showGroup}}" readonly value="{{selGroupName}}" center clearable label="圈子" placeholder="请选择圈子进行发布" use-button-slot>
+        <van-field required wx:if="{{showGroup}}" readonly value="{{selGroupName}}" center clearable label="圈子" placeholder="请选择圈子进行提交" use-button-slot>
           <van-button slot="button" size="small" custom-class="button" type="primary" bindtap="openGroupModel">切换圈子</van-button>
         </van-field>
         <van-field style="height:50px;line-height:40px" wx:if="{{showRemark}}" value="{{ remark }}" label="备注" type="textarea" placeholder="还想补充点什么..." autosize bind:input="onInputRemark" />
       </van-cell-group>
       <view wx:if="{{showSubmit}}" class="button-sp-area">
-        <button type="primary" bindtap="savePlay">发布</button>
+        <button type="primary" bindtap="savePlay">提交</button>
       </view>
     </van-tab>
     <!-- <van-icon slot="nav-right" name="logistics" custom-class="right-nav" /> -->
