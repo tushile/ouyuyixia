@@ -9,7 +9,8 @@ Page({
 
   data: {
     groupInfos: [],
-    openGId: ''
+    openGId: '',
+    noGroup:false
   },
   turnGroup(e) {
     let groupId = e.currentTarget.dataset.groupid
@@ -49,9 +50,13 @@ Page({
               groupInfos[i].groupName = myGroups[i].DiyGroupName
               groupInfos[i].groupId = myGroups[i].OpenGId
             }
+          }else{
+            that.setData({
+              noGroup: true,
+            })
           }
           that.setData({
-            groupInfos: groupInfos
+            groupInfos: groupInfos,
           })
         }
       }

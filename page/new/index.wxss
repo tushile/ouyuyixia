@@ -4,7 +4,7 @@
 .van-cell {
   padding: 4px 15px !important;
   line-height: 42px !important;
-  min-height: 42px!important;
+  min-height: 42px !important;
 }
 
 .right-nav {
@@ -17,7 +17,8 @@
 
 .left-nav {
   position: absolute !important;
-  left: 130rpx !important;
+  /* left: 130rpx !important; */
+  left: 41%;
   top: calc(20% + 12rpx) !important;
   width: 34rpx !important;
   height: 34rpx !important;

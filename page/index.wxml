@@ -21,12 +21,13 @@
     <view class="page-section page-section-gap">
       <map id="myMap" style="width: 100%; height:100vh;" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{scale}}" subkey="YOKBZ-U4LCU-YONV4-22XMJ-D4W36-DWBEW" show-compass show-location markers="{{markers}}" polygons="{{polygons}}" bindmarkertap="markertap"
         bindcallouttap="markertap">
+        <cover-view class="onLine">当前{{online}}人在线</cover-view>
         <cover-view wx:if="{{isShowInput}}" class="input-info" bindtap="tapInput">
           {{inputInfo}}
           <input class="hide" value="{{searchText}}" focus="{{inputFocus}}" bindinput="bindInput" bindblur="blurInput"></input>
 
         </cover-view>
-        <cover-view wx:if="{{isShowInput}}" class="input-label" >
+        <cover-view wx:if="{{isShowInput}}" class="input-label">
           自定义群名称↑
         </cover-view>
         <cover-view wx:if="{{isShowSave}}" class='cover-button' hover-class="cover-button-hover" catchtap="saveGroupName">

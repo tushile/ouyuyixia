@@ -17,5 +17,6 @@
       </view>
     </view>
   </block>
+  <view wx:if="{{noGroup}}" class="noGroup">您还没有圈子，分享至微信群并点击小卡片，即可关联</view>
   <view class="advice" bindtap='turnAdvice'>投诉&建议</view>
 </view>

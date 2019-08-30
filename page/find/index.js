@@ -27,7 +27,7 @@ Page({
         console.log('收到服务器内容play ', res)
         Notify({
           duration: 2000,
-          text: '有人发布了新活动，快去看看吧',
+          text: '有人更新了新活动，快去看看吧',
           selector: '#custom-selector',
           backgroundColor: '#1989fa',
           safeAreaInsetTop: true

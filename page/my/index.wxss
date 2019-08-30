@@ -78,3 +78,11 @@
   color: #1989fa;
   font-size: 0.8em;
 }
+
+.noGroup {
+  width: 100%;
+  color: #666;
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 200rpx;
+}

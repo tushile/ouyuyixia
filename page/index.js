@@ -22,6 +22,7 @@ Page({
     latitude: 23.099994,
     longitude: 113.324520,
     openGId: "",
+    online: 1,
     scale: 11,
     isInitScale: true,
     isHide: false,
@@ -148,16 +149,17 @@ Page({
                 app.wxlogin().then((res) => {
                   wx.hideNavigationBarLoading()
                   wx.hideLoading()
-                  that.selectMyGroup()
-                  that.getGroupName()
 
+                  that.getGroupName()
+                  that.selectMyGroup()
                   that.saveUserInit(res1.userInfo)
                 })
               } else {
                 wx.hideNavigationBarLoading()
                 wx.hideLoading()
-                that.selectMyGroup()
+
                 that.getGroupName()
+                that.selectMyGroup()
                 that.saveUserInit(res1.userInfo)
               }
             }
@@ -179,7 +181,7 @@ Page({
     if (initIndexType == 1) {
       let shareTicket = wx.getStorageSync("shareTicket")
       if (shareTicket) {
-        app.getShare(shareTicket).then((res) => {
+        app.getShare(shareTicket).then(() => {
           this.initGroupName()
           return
         })
@@ -288,16 +290,15 @@ Page({
           wx.hideNavigationBarLoading()
           wx.hideLoading()
 
-          that.selectMyGroup()
           that.getGroupName()
+          that.selectMyGroup()
           that.saveUserButton(e.detail.userInfo)
         })
       } else {
         wx.hideNavigationBarLoading()
         wx.hideLoading()
-
-        that.selectMyGroup()
         that.getGroupName()
+        that.selectMyGroup()
         that.saveUserButton(e.detail.userInfo)
       }
     } else {
@@ -407,10 +408,11 @@ Page({
         if (tmp[0] == openGId && resData.evt == "chat") {
           console.log('收到服务器内容chat ', res)
           that.setData({
-            isInitScale: false
+            isInitScale: false,
+            online: tmp[2]
           })
           wx.showToast({
-            title: tmp[1] + '已加入',
+            title: tmp[1] + '已更新定位',
             icon: 'none',
             duration: 3000
           })

@@ -1,4 +1,5 @@
 const config = require('./config')
+const mtjwxsdk = require('./utils/mtj-wx-sdk.js');
 const ws = require('./util/ws.js')
 var WXBizDataCrypt = require('./util/WXBizDataCrypt.js')
 App({
@@ -122,7 +123,7 @@ App({
               }
             }
           })
-          resolve(res);
+          resolve();
         }
       })
     })
