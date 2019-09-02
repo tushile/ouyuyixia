@@ -186,9 +186,10 @@ Page({
     this.setData({
       showTimeModel: false,
       showGroup: true,
+      selGroupName: this.data.selGroupName == "" ? "未命名" : this.data.selGroupName,
       currentDateTxt: currentDateTxt
     });
-    if (this.data.selGroupName) {
+    if (this.data.selGroupId) {
       this.setData({
         showRemark: true,
         showSubmit: true,
@@ -219,7 +220,7 @@ Page({
     let item = event.detail
     this.setData({
       showGroupModel: false,
-      selGroupName: item.value,
+      selGroupName: item.value == "" ? "未命名圈子" : item.value,
       selGroupId: this.data.groupSet[item.index],
       showSubmit: true,
       showRemark: true
@@ -289,7 +290,7 @@ Page({
     // });
     // 查看是否授权用户信息
     wx.getSetting({
-      success: function (res) {
+      success: function(res) {
         if (!res.authSetting['scope.userInfo']) {
           wx.switchTab({
             url: '../index'

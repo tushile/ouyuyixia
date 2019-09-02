@@ -416,7 +416,11 @@ Page({
             icon: 'none',
             duration: 3000
           })
-          that.selectUserGroup()
+          //不是自己登陆，才再刷新一遍数据
+          if (tmp[3] == "notme") {
+            that.selectUserGroup()
+          }
+
         }
         resolve(res)
       }
@@ -493,6 +497,10 @@ Page({
                 height: 34
               }
             }
+            points.push({
+              latitude: that.data.latitude,
+              longitude: that.data.longitude
+            })
             //求坐标点最外层边框，并排序
             var resOut = hull.getOutPoints(points)
             var outPoints = resOut.outPoints

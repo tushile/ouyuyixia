@@ -13,9 +13,6 @@ Page({
     radio: '1',
     message: ''
   },
-  onLoad() {
-    console.log("我的 onload")
-  },
 
   onShow() {
 

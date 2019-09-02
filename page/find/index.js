@@ -87,7 +87,9 @@ Page({
               resData[i].activeTime = date.getMonth() + 1 + "." + date.getDate() + "(" + util.getDay(date) + ")" + h + ":" + m
               resData[i].address = that.txtSub(resData[i].address, 10)
               resData[i].remark = that.txtSub(resData[i].remark, 13)
-              if (date < new Date()) {
+              var ye = new Date();
+              ye.setDate(ye.getDate()-1);//设置昨天日期
+              if (date < ye) {
                 myPlaysHis.push(resData[i])
               } else {
                 myPlays.push(resData[i])
