@@ -17,8 +17,8 @@
 
 .left-nav {
   position: absolute !important;
-  /* left: 130rpx !important; */
-  left: 41%;
+  left: 130rpx !important;
+  /* left: 41%; */
   top: calc(20% + 12rpx) !important;
   width: 34rpx !important;
   height: 34rpx !important;

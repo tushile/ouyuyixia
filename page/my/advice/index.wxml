@@ -27,7 +27,7 @@
   <button class="contact" open-type="contact">
     <!-- <contact-button type="default-light" size="20" session-from="weapp">
     </contact-button> -->
-    直接联系
+    在线客服
   </button>
   <van-toast id="van-toast" />
 </view>

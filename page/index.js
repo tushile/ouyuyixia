@@ -322,6 +322,8 @@ Page({
                 latitude: res.latitude,
                 longitude: res.longitude
               });
+              wx.setStorageSync("latitude", res.latitude)
+              wx.setStorageSync("longitude", res.longitude)
               that.saveLoc(res)
               that.selectUserGroup()
             }
@@ -359,6 +361,8 @@ Page({
                 latitude: res.latitude,
                 longitude: res.longitude
               });
+              wx.setStorageSync("latitude", res.latitude)
+              wx.setStorageSync("longitude", res.longitude)
               that.saveLoc(res)
               that.selectUserGroup()
             },
@@ -561,6 +565,8 @@ Page({
                       latitude: res.latitude,
                       longitude: res.longitude
                     });
+                    wx.setStorageSync("latitude", res.latitude)
+                    wx.setStorageSync("longitude", res.longitude)
                     that3.saveLoc(res)
                     that3.selectUserGroup()
                   }

@@ -1,5 +1,5 @@
 <view>
-  <van-nav-bar title="活动">
+  <van-nav-bar title="发布">
     <view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
     <!-- <van-icon name="search" slot="left" custom-class="icon" /> -->
   </van-nav-bar>
@@ -58,12 +58,12 @@
         <button type="primary" bindtap="savePlay">提交</button>
       </view>
     </van-tab>
-    <!-- <van-icon slot="nav-right" name="logistics" custom-class="right-nav" /> -->
-    <!-- <van-tab title="顺风车">
+    <van-icon slot="nav-right" name="logistics" custom-class="right-nav" />
+    <van-tab title="同行">
       <view>
         <image style='width:100%;margin-top:100rpx;' src='resources/qidai.svg'></image>
       </view>
-    </van-tab> -->
+    </van-tab>
   </van-tabs>
   <van-popup show="{{ showTimeModel }}" position="bottom" bind:close="closeTimeModel">
     <van-datetime-picker item-height="30" type="datetime" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:input="onInputTime" bind:confirm="onConfirmTime" bind:cancel="onCancelTime" />

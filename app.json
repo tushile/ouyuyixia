@@ -35,7 +35,7 @@
         "iconPath": "image/new.png",
         "selectedIconPath": "image/new_select.png",
         "pageTum": "navigate",
-        "text": "活动"
+        "text": "发布"
       },
       {
         "pagePath": "page/my/index",

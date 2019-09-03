@@ -11,7 +11,7 @@
       <view class="group-content">
         <view class="group-txt">圈子名：{{item.groupName}}
         </view>
-        <view class="group-txt">来自微信群：
+        <view class="group-txt">关联微信群：
           <open-data type="groupName" open-gid="{{item.groupId}}"></open-data>
         </view>
       </view>

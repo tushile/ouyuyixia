@@ -11,12 +11,7 @@
   height: 200rpx;
 }
 
-.onLine {
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  margin-top: 100rpx;
-  font-size: 0.8em;
-}
+
 
 .content {
   padding: 40rpx 0;
@@ -64,7 +59,12 @@
 }
 
 /* 输入组件 */
-
+.onLine {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin-top: 100rpx;
+  font-size: 0.8em;
+}
 .input-info {
   position: fixed;
   left: 50%;
