@@ -59,7 +59,8 @@ App({
                 wx.setStorageSync("session_key", resData.data.session_key)
                 console.log('用户的openid:' + resData.data.openid)
                 console.log('用户的session_key:' + resData.data.session_key)
-
+                let isAudit = resData.isAudit
+                wx.setStorageSync("isAudit", isAudit)
                 that.getSystem();
                 resolve(res);
               }

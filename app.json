@@ -35,7 +35,7 @@
         "iconPath": "image/new.png",
         "selectedIconPath": "image/new_select.png",
         "pageTum": "navigate",
-        "text": "发布"
+        "text": "活动"
       },
       {
         "pagePath": "page/my/index",
@@ -73,7 +73,8 @@
     "van-toast": "../../lib/toast/index",
     "van-picker": "../../lib/picker/index",
     "van-notify": "../../lib/notify/index",
-    "van-loading": "../../lib/loading/index"
+    "van-loading": "../../lib/loading/index",
+    "van-switch": "../../lib/switch/index"
   },
   "sitemapLocation": "sitemap.json"
 }

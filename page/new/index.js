@@ -292,9 +292,12 @@ Page({
     wx.getSetting({
       success: function(res) {
         if (!res.authSetting['scope.userInfo']) {
-          wx.switchTab({
-            url: '../index'
-          })
+          let isAudit = wx.getStorageSync("isAudit")
+          if (isAudit != "1") {
+            wx.switchTab({
+              url: '../index'
+            })
+          }
         }
       }
     })

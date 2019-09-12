@@ -1,5 +1,6 @@
 <view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
 <view class="index">
+  <!-- <view class="juhe" bindtap='turnJuhe'>今日热榜</view> -->
   <view class="head">
     <view class="img">
       <open-data type="userAvatarUrl"></open-data>

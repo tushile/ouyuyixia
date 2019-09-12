@@ -167,8 +167,10 @@ Page({
         } else {
           // 用户没有授权
           // 改变 isHide 的值，显示授权页面
+          let isAudit = wx.getStorageSync("isAudit")
+          let isHide = isAudit == "1" ? false : true
           that.setData({
-            isHide: true
+            isHide: isHide
           });
         }
       }
@@ -331,8 +333,10 @@ Page({
         } else {
           // 用户没有授权
           // 改变 isHide 的值，显示授权页面
+          let isAudit = wx.getStorageSync("isAudit")
+          let isHide = isAudit == "1" ? false : true
           that.setData({
-            isHide: true
+            isHide: isHide
           });
           that.showErrorLoc()
         }

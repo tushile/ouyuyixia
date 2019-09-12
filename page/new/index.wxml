@@ -1,5 +1,5 @@
 <view>
-  <van-nav-bar title="发布">
+  <van-nav-bar title="活动">
     <view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
     <!-- <van-icon name="search" slot="left" custom-class="icon" /> -->
   </van-nav-bar>

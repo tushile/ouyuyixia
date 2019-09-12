@@ -1,0 +1,6 @@
+<view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
+<view class="index">
+  <!-- <van-nav-bar title="投诉&建议" left-text="返回" left-arrow bind:click-left="back">
+  </van-nav-bar> -->
+  <web-view src="https://heltoo.xyz/today/" />
+</view>

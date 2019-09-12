@@ -47,9 +47,12 @@ Page({
     wx.getSetting({
       success: function(res) {
         if (!res.authSetting['scope.userInfo']) {
-          wx.switchTab({
-            url: '../index'
-          })
+          let isAudit = wx.getStorageSync("isAudit")
+          if (isAudit != "1") {
+            wx.switchTab({
+              url: '../index'
+            })
+          }
         }
       }
     })
@@ -88,7 +91,7 @@ Page({
               resData[i].address = that.txtSub(resData[i].address, 10)
               resData[i].remark = that.txtSub(resData[i].remark, 13)
               var ye = new Date();
-              ye.setDate(ye.getDate()-1);//设置昨天日期
+              ye.setDate(ye.getDate() - 1); //设置昨天日期
               if (date < ye) {
                 myPlaysHis.push(resData[i])
               } else {

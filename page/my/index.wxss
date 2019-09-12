@@ -78,7 +78,13 @@
   color: #1989fa;
   font-size: 0.8em;
 }
-
+.juhe{
+  position: fixed;
+  top: 120rpx;
+  left:20rpx;
+  color: #fff;
+  font-size: 0.8em;
+}
 .noGroup {
   width: 100%;
   color: #666;

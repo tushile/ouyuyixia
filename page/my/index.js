@@ -38,9 +38,13 @@ Page({
     wx.getSetting({
       success: function(res) {
         if (!res.authSetting['scope.userInfo']) {
-          wx.switchTab({
-            url: '../index'
-          })
+          let isAudit = wx.getStorageSync("isAudit")
+          if(isAudit!="1"){
+            wx.switchTab({
+              url: '../index'
+            })
+          }
+          
         } else {
           let myGroups = wx.getStorageSync("myGroups")
           let groupInfos = []
@@ -65,6 +69,11 @@ Page({
   turnAdvice() {
     wx.navigateTo({
       url: "advice/index"
+    })
+  },
+  turnJuhe() {
+    wx.navigateTo({
+      url: "juhe/index"
     })
   }
 })
