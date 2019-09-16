@@ -39,6 +39,8 @@ Page({
     inputInfo: '给圈子取个名字吧', // cover-view 显示的 input 的输入内容
     isShowSave: false,
     isShowInput: false,
+    checked: wx.getStorageSync("Isshareloc") == "0" ? false : true,
+    switchMsg: wx.getStorageSync("Isshareloc") == "0" ? "位置共享已关闭" : "位置共享已打开"
   },
   /**
    * 将焦点给到 input
@@ -265,6 +267,37 @@ Page({
   dingwei: function() {
     var myMap = wx.createMapContext("myMap", this)
     myMap.moveToLocation()
+  },
+  //点击切换开关按钮
+  onChangeSwitch: function({
+    detail
+  }) {
+    this.setData({
+      checked: detail,
+      switchMsg: detail ? "位置共享已打开" : "位置共享已关闭"
+    });
+    let isShareLoc = detail ? "1" : "0"
+    wx.setStorageSync("Isshareloc", isShareLoc)
+    //调用后台进行存储
+    wx.request({
+      url: config.saveUserGroupUrl,
+      data: {
+        userGroupInfo: JSON.stringify({
+          Opengid: wx.getStorageSync("openGId"),
+          Openid: wx.getStorageSync("openid"),
+          Isshareloc: isShareLoc
+        })
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      success: function(result) {
+        if (result.code == -1) {
+          console.log('操作失败！' + result.data)
+        }
+      }
+    })
   },
   onLoad: function() {
     //带ticket转发

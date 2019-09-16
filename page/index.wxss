@@ -11,8 +11,6 @@
   height: 200rpx;
 }
 
-
-
 .content {
   padding: 40rpx 0;
 }
@@ -59,12 +57,14 @@
 }
 
 /* 输入组件 */
+
 .onLine {
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
   margin-top: 100rpx;
   font-size: 0.8em;
 }
+
 .input-info {
   position: fixed;
   left: 50%;
@@ -251,4 +251,23 @@
   line-height: 2.5rem;
 }
 
-/* 模态窗 */
+/* 开关 */
+
+.switch {
+  position: fixed;
+  bottom: 120rpx;
+  right: 4%;
+}
+
+.input-switch {
+  position: fixed;
+  right: 0%;
+  bottom: 186rpx;
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 10rpx;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8em;
+  text-align: right;
+}

@@ -27,6 +27,10 @@
           <input class="hide" value="{{searchText}}" focus="{{inputFocus}}" bindinput="bindInput" bindblur="blurInput"></input>
 
         </cover-view>
+        <cover-view wx:if="{{isShowInput}}" class="input-switch">
+          {{switchMsg}}
+        </cover-view>
+        <van-switch wx:if="{{isShowInput}}" bind:change="onChangeSwitch" class="switch" checked="{{checked}}" active-color="#07c160" inactive-color="#f44" />
         <cover-view wx:if="{{isShowInput}}" class="input-label">
           自定义群名称↑
         </cover-view>

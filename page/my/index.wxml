@@ -6,6 +6,7 @@
       <open-data type="userAvatarUrl"></open-data>
     </view>
   </view>
+  
   <block wx:for-items="{{groupInfos}}" wx:for-item="item" wx:key="*item">
     <view bindtap='turnGroup' data-groupid='{{item.groupId}}' data-groupname='{{item.groupName}}' class="group">
       <image class="group-img" src="resources/kind/mygroup.png"></image>
